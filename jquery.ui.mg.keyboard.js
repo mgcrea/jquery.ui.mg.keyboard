@@ -1,6 +1,6 @@
 
  /*
- * jQuery UI Keyboard plugin
+ * jQueryUI mgKeyboard plugin
  *
  * Copyright (c) 2010 Magenta Creations. All rights reserved.
  * Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License.
@@ -22,6 +22,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		shift: false,
 		distance: 5, // $.ui.mouse option
 		delay: 5, // $.ui.mouse option
+		debug: false
 	},
 	_mouseStart: function(e) {
 		//console.log('_mouseStart', e);
@@ -88,7 +89,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		var inputVal = $input.val();
 		var text = $t.text(); //String.fromCharCode($t.data('key-code'));
 
-		console.log('$.ui.' + this.widgetName + ' ~ ' + '_mouseClick()', [$input, inputVal, text, e]);
+		console.log('$.ui.' + self.widgetName + ' ~ ' + '_mouseClick()', [$input, inputVal, text, e]);
 
 		if($t.hasClass('letter')) {
 			$this.hasClass('keyboard-shift-active') ? $input.val(inputVal + text.toUpperCase()) : $input.val(inputVal + text);
@@ -119,7 +120,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 			$this.hasClass('keyboard-shift-active') ? $input.val(inputVal + text.toUpperCase()) : $input.val(inputVal + text);
 		}
 
-		$input.trigger("keyup");
+		$input.trigger("keydown").trigger("keyup");
 
 		if($t.hasClass("is-subkey"))  $t.closest("div.subkeys").hide();
 
@@ -135,6 +136,10 @@ $.widget("ui.keyboard", $.ui.mouse, {
 	_keyboard: function( init ) {
 		var self = this,
 			o = this.options;
+
+		if (!o.debug) {
+			logger.disableLogger();
+		}
 
 		this.inputs = $("input");
 
@@ -177,5 +182,26 @@ function splitCssMatrix(m, r) {
 	if(typeof r !== undefined) return rs[r];
 	return rs;
 }
+
+/*
+ * logger wrapper
+ */
+
+var logger = function() {
+	var oldConsoleLog = null;
+	var pub = {};
+
+	pub.enableLogger = function enableLogger() {
+		if(oldConsoleLog == null) return;
+		window['console']['log'] = oldConsoleLog;
+	};
+
+	pub.disableLogger = function disableLogger() {
+		oldConsoleLog = console.log;
+		window['console']['log'] = function() {};
+	};
+
+	return pub;
+}();
 
 })(jQuery);
