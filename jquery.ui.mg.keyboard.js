@@ -13,7 +13,7 @@
  * http://mg-crea.com
  */
 
-(function( $, undefined ) {
+(function( $, console, undefined ) {
 
 $.widget("ui.keyboard", $.ui.mouse, {
 	widgetEventPrefix: "keyboard",
@@ -137,9 +137,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		var self = this,
 			o = this.options;
 
-		if (!o.debug) {
-			logger.disableLogger();
-		}
+		if(!o.debug) console = { log: function(){} };
 
 		this.inputs = $("input");
 
@@ -183,25 +181,4 @@ function splitCssMatrix(m, r) {
 	return rs;
 }
 
-/*
- * logger wrapper
- */
-
-var logger = function() {
-	var oldConsoleLog = null;
-	var pub = {};
-
-	pub.enableLogger = function enableLogger() {
-		if(oldConsoleLog == null) return;
-		window['console']['log'] = oldConsoleLog;
-	};
-
-	pub.disableLogger = function disableLogger() {
-		oldConsoleLog = console.log;
-		window['console']['log'] = function() {};
-	};
-
-	return pub;
-}();
-
-})(jQuery);
+})(jQuery, console);
