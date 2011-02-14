@@ -31,14 +31,17 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		//console.log('_mouseDrag', e, this._mouseDragged);
 		var $t = $(e.target);
 
-		/** bubbling **/
+		// bubble to closest anchor element
 		if($t.get(0).tagName !== "A") {
 			$t = $t.parent("a");
 			if(!$t) return false;
 		}
 
-		if(!this._mouseDragged) {
-			if($t.hasClass("has-subkeys")) $t.next("div.subkeys").show();
+		if($t.hasClass("has-subkeys")) {
+			// has the mouse been dragged before ?
+			if(!this._mouseDragged) {
+				$t.next("div.subkeys").show();
+			}
 		}
 
 		if($t.hasClass("is-subkey"))  $t.siblings().removeClass('ui-state-active').end().addClass('ui-state-active');
@@ -46,36 +49,54 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		this._mouseDragged = true;
 	},
 	_mouseStop: function(e) {
-		//console.log('_mouseStop', e);
+		console.log('$.ui.' + this.widgetName + ' ~ ' + '_mouseStop()', e);
 		var $t = $(e.target);
 
-		/** bubbling **/
+		// bubble to closest anchor element
 		if($t.get(0).tagName !== "A") {
 			$t = $t.parent("a");
 			if(!$t) return false;
 		}
 
+		// releasing on a subkey = click
 		if($t.is("div.subkeys a")) {
 			$t.trigger("click");
 		}
+
+		// clear timer
+		clearInterval(this.mouseHeldDownTimer);
 	},
 	_mouseCapture: function(e) {
-		//console.log('_mouseCapture', e);
+		console.log('$.ui.' + this.widgetName + ' ~ ' + '_mouseCapture()', e);
 		var self = this,
 			o = this.options;
 
+		// reset drag status
 		this._mouseDragged = false;
+
+		// add mouseHeldDown timer
+		clearInterval(this.mouseHeldDownTimer);
+		this.mouseHeldDownTimer = setTimeout(function() { self._mouseHeldDown(e); }, 1200);
 
 		e.preventDefault();
 		e.stopPropagation();
 		return true;
 	},
-	_mouseClick: function(e) {
-		var self = $.data(this, "keyboard"),
-			$this = self.element,
+	_mouseHeldDown: function(e) {
+		console.log('$.ui.' + this.widgetName + ' ~ ' + '_mouseHeldDown()', e);
+		var self = this,
+			o = this.options;
+
+		clearInterval(this.mouseHeldDownTimer);
+		this.mouseHeldDownTimer = setInterval(function() { self._mouseClick(e, self, true); }, 400);
+	},
+	_mouseClick: function(e, self, heldDown) {
+		self = self || $.data(this, "keyboard");
+		heldDown = heldDown || false;
+		var $this = self.element,
 			$t = $(e.target);
 
-		/** bubbling **/
+		// bubble to closest anchor element
 		if($t.get(0).tagName !== "A") {
 			$t = $t.parent("a");
 			if(!$t) return false;
@@ -122,7 +143,10 @@ $.widget("ui.keyboard", $.ui.mouse, {
 
 		$input.trigger("keydown").trigger("keyup");
 
-		if($t.hasClass("is-subkey"))  $t.closest("div.subkeys").hide();
+		if($t.hasClass("is-subkey")) $t.closest("div.subkeys").hide();
+
+		// clear timer
+		if(!heldDown) clearInterval(self.mouseHeldDownTimer);
 
 		e.preventDefault();
 		e.stopPropagation();
@@ -140,8 +164,11 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		if(!o.debug) console = { log: function(){} };
 
 		this.inputs = $("input");
+		this.keys = this.element.find("li.key");
 
 		this.element.css('position', 'relative');
+
+		this.mouseHeldDownTimer = null;
 
 		// mouse click
 		this.element.bind('click.'+this.widgetName, {'this' : this}, this._mouseClick);
@@ -150,7 +177,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		this._mouseInit();
 
 		if(this.options.shift) {
-			this.element.find("li.key a.special-shift").addClass('ui-state-active');
+			this.keys.find("a.special-shift").addClass('ui-state-active');
 			this.element.addClass('keyboard-shift-active');
 		}
 
@@ -181,4 +208,4 @@ function splitCssMatrix(m, r) {
 	return rs;
 }
 
-})(jQuery, console);
+})(jQuery, window.console);
