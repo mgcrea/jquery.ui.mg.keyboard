@@ -2,6 +2,11 @@
 
 Handle a css keyboard
 
+## Examples
+
+* http://mgcrea.github.com/jquery.ui.mg.keyboard/examples/01.html
+* http://mgcrea.github.com/jquery.ui.mg.keyboard/examples/02.html
+
 ## Vendors
 
 * jquery.js					- jQuery
