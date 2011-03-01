@@ -32,4 +32,4 @@ Handle a css keyboard
 
 Copyright 2010<br/>
 Magenta Creations<br/>
-<http://www.mg-crea.com><br/>
+<http://mg-crea.com><br/>
