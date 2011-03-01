@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>jquery.ui.mg.keyboard ~ 02</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/02.css" />
+	<script type="text/javascript" src="../vendors/jquery/jquery.js"></script>
+	<script type="text/javascript" src="../vendors/jquery.ui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="../vendors/jquery.ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="../vendors/jquery.ui/jquery.ui.position.js"></script>
+	<script type="text/javascript" src="../vendors/jquery.ui/jquery.ui.mouse.js"></script>
+	<script type="text/javascript" src="../jquery.ui.mg.keyboard.js"></script>
+	<script type="text/javascript" src="js/02.js"></script>
+</head>
+<body>
+
+<h1>02</h1>
+
+<div class="input text search">
+	<div class="wrap">
+		<input name="data[search]" type="text" role="input" aria-disabled="false" size="32" options="" value="" id="search">
+	</div>
+</div>
+<button id="toggle-keyboard">toggle keyboard</button>
+
+<div id="keyboard" class="keyboard">
+	<div class="keyboard-container">
+
+	<ul class="keyboard keyboard-letters">
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-a group-letters has-subkeys" data-key-code="97"><span class="ui-button-text">a</span></a>
+			<div class="subkeys" style="display:none;">
+				<a href="#" role="button" aria-disabled="false" class="symbol symbol-à group-letters is-subkey" data-key-code="195"><span class="ui-button-text">à</span></a><a href="#" role="button" aria-disabled="false" class="symbol symbol-â group-letters is-subkey" data-key-code="195"><span class="ui-button-text">â</span></a><a href="#" role="button" aria-disabled="false" class="symbol symbol-ä group-letters is-subkey" data-key-code="195"><span class="ui-button-text">ä</span></a>
+			</div>
+			</li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-z group-letters " data-key-code="122"><span class="ui-button-text">z</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-e group-letters has-subkeys" data-key-code="101"><span class="ui-button-text">e</span></a>
+			<div class="subkeys" style="display:none;">
+				<a href="#" role="button" aria-disabled="false" class="symbol symbol-é group-letters is-subkey" data-key-code="195"><span class="ui-button-text">é</span></a><a href="#" role="button" aria-disabled="false" class="symbol symbol-è group-letters is-subkey" data-key-code="195"><span class="ui-button-text">è</span></a><a href="#" role="button" aria-disabled="false" class="symbol symbol-ê group-letters is-subkey" data-key-code="195"><span class="ui-button-text">ê</span></a><a href="#" role="button" aria-disabled="false" class="symbol symbol-ë group-letters is-subkey" data-key-code="195"><span class="ui-button-text">ë</span></a>
+			</div>
+			</li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-r group-letters " data-key-code="114"><span class="ui-button-text">r</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-t group-letters " data-key-code="116"><span class="ui-button-text">t</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-y group-letters has-subkeys" data-key-code="121"><span class="ui-button-text">y</span></a>
+			<div class="subkeys" style="display:none;">
+				<a href="#" role="button" aria-disabled="false" class="symbol symbol-ÿ group-letters is-subkey" data-key-code="195"><span class="ui-button-text">ÿ</span></a>
+			</div>
+			</li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-u group-letters " data-key-code="117"><span class="ui-button-text">u</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-i group-letters has-subkeys" data-key-code="105"><span class="ui-button-text">i</span></a>
+			<div class="subkeys" style="display:none;">
+				<a href="#" role="button" aria-disabled="false" class="symbol symbol-î group-letters is-subkey" data-key-code="195"><span class="ui-button-text">î</span></a><a href="#" role="button" aria-disabled="false" class="symbol symbol-ï group-letters is-subkey" data-key-code="195"><span class="ui-button-text">ï</span></a>
+			</div>
+			</li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-o group-letters has-subkeys" data-key-code="111"><span class="ui-button-text">o</span></a>
+			<div class="subkeys" style="display:none;">
+				<a href="#" role="button" aria-disabled="false" class="symbol symbol-ô group-letters is-subkey" data-key-code="195"><span class="ui-button-text">ô</span></a><a href="#" role="button" aria-disabled="false" class="symbol symbol-ö group-letters is-subkey" data-key-code="195"><span class="ui-button-text">ö</span></a>
+			</div>
+			</li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-p group-letters " data-key-code="112"><span class="ui-button-text">p</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-q group-letters " data-key-code="113"><span class="ui-button-text">q</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-s group-letters " data-key-code="115"><span class="ui-button-text">s</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-d group-letters " data-key-code="100"><span class="ui-button-text">d</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-f group-letters " data-key-code="102"><span class="ui-button-text">f</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-g group-letters " data-key-code="103"><span class="ui-button-text">g</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-h group-letters " data-key-code="104"><span class="ui-button-text">h</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-j group-letters " data-key-code="106"><span class="ui-button-text">j</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-k group-letters " data-key-code="107"><span class="ui-button-text">k</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-l group-letters " data-key-code="108"><span class="ui-button-text">l</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-m group-letters " data-key-code="109"><span class="ui-button-text">m</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-shift group-letters " data-key-special="shift"><span class="ui-button-text">shift</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-w group-letters " data-key-code="119"><span class="ui-button-text">w</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-x group-letters " data-key-code="120"><span class="ui-button-text">x</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-c group-letters " data-key-code="99"><span class="ui-button-text">c</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-v group-letters " data-key-code="118"><span class="ui-button-text">v</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-b group-letters " data-key-code="98"><span class="ui-button-text">b</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-n group-letters " data-key-code="110"><span class="ui-button-text">n</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-backspace group-letters " data-key-special="backspace"><span class="ui-button-text">backspace</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-toggle-numbers group-letters " data-key-special="toggle-numbers"><span class="ui-button-text">toggle-numbers</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-space group-letters " data-key-special="space"><span class="ui-button-text">space</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-return group-letters " data-key-special="return"><span class="ui-button-text">return</span></a></li>
+		</div>
+	</ul>
+	<ul class="keyboard keyboard-numbers" style="display:none;">
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-1 group-numbers " data-key-code="49"><span class="ui-button-text">1</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-2 group-numbers " data-key-code="50"><span class="ui-button-text">2</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-3 group-numbers " data-key-code="51"><span class="ui-button-text">3</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-4 group-numbers " data-key-code="52"><span class="ui-button-text">4</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-5 group-numbers " data-key-code="53"><span class="ui-button-text">5</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-6 group-numbers " data-key-code="54"><span class="ui-button-text">6</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-7 group-numbers " data-key-code="55"><span class="ui-button-text">7</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-8 group-numbers " data-key-code="56"><span class="ui-button-text">8</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-9 group-numbers " data-key-code="57"><span class="ui-button-text">9</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="figure figure-0 group-numbers " data-key-code="48"><span class="ui-button-text">0</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-- group-numbers " data-key-code="45"><span class="ui-button-text">-</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-/ group-numbers " data-key-code="47"><span class="ui-button-text">/</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-: group-numbers " data-key-code="58"><span class="ui-button-text">:</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-; group-numbers " data-key-code="59"><span class="ui-button-text">;</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-( group-numbers " data-key-code="40"><span class="ui-button-text">(</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-) group-numbers " data-key-code="41"><span class="ui-button-text">)</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-€ group-numbers " data-key-code="226"><span class="ui-button-text">€</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-&amp; group-numbers " data-key-code="38"><span class="ui-button-text">&amp;</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-@ group-numbers " data-key-code="64"><span class="ui-button-text">@</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-" group-numbers="" "="" data-key-code="34"><span class="ui-button-text">"</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-toggle-symbols group-numbers " data-key-special="toggle-symbols"><span class="ui-button-text">toggle-symbols</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-. group-numbers " data-key-code="46"><span class="ui-button-text">.</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-, group-numbers " data-key-code="44"><span class="ui-button-text">,</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-? group-numbers " data-key-code="63"><span class="ui-button-text">?</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-! group-numbers " data-key-code="33"><span class="ui-button-text">!</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-' group-numbers " data-key-code="39"><span class="ui-button-text">'</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-` group-numbers " data-key-code="96"><span class="ui-button-text">`</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-backspace group-numbers " data-key-special="backspace"><span class="ui-button-text">backspace</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-toggle-letters group-numbers " data-key-special="toggle-letters"><span class="ui-button-text">toggle-letters</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-space group-numbers " data-key-special="space"><span class="ui-button-text">space</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-return group-numbers " data-key-special="return"><span class="ui-button-text">return</span></a></li>
+		</div>
+	</ul>
+	<ul class="keyboard keyboard-symbols" style="display:none;">
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-[ group-symbols " data-key-code="91"><span class="ui-button-text">[</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-] group-symbols " data-key-code="93"><span class="ui-button-text">]</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-{ group-symbols " data-key-code="123"><span class="ui-button-text">{</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-} group-symbols " data-key-code="125"><span class="ui-button-text">}</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-# group-symbols " data-key-code="35"><span class="ui-button-text">#</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-% group-symbols " data-key-code="37"><span class="ui-button-text">%</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-^ group-symbols " data-key-code="94"><span class="ui-button-text">^</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-* group-symbols " data-key-code="42"><span class="ui-button-text">*</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-+ group-symbols " data-key-code="43"><span class="ui-button-text">+</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-= group-symbols " data-key-code="61"><span class="ui-button-text">=</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-_ group-symbols " data-key-code="95"><span class="ui-button-text">_</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-\ group-symbols " data-key-code="92"><span class="ui-button-text">\</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-| group-symbols " data-key-code="124"><span class="ui-button-text">|</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="letter letter-~ group-symbols " data-key-code="126"><span class="ui-button-text">~</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-&lt; group-symbols " data-key-code="60"><span class="ui-button-text">&lt;</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-&gt; group-symbols " data-key-code="62"><span class="ui-button-text">&gt;</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-$ group-symbols " data-key-code="36"><span class="ui-button-text">$</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-£ group-symbols " data-key-code="194"><span class="ui-button-text">£</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-¥ group-symbols " data-key-code="194"><span class="ui-button-text">¥</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-• group-symbols " data-key-code="226"><span class="ui-button-text">•</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-toggle-numbers group-symbols " data-key-special="toggle-numbers"><span class="ui-button-text">toggle-numbers</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-. group-symbols " data-key-code="46"><span class="ui-button-text">.</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-, group-symbols " data-key-code="44"><span class="ui-button-text">,</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-? group-symbols " data-key-code="63"><span class="ui-button-text">?</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-! group-symbols " data-key-code="33"><span class="ui-button-text">!</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-' group-symbols " data-key-code="39"><span class="ui-button-text">'</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="symbol symbol-` group-symbols " data-key-code="96"><span class="ui-button-text">`</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-backspace group-symbols " data-key-special="backspace"><span class="ui-button-text">backspace</span></a></li>
+		</div>
+		<div>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-toggle-letters group-symbols " data-key-special="toggle-letters"><span class="ui-button-text">toggle-letters</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-space group-symbols " data-key-special="space"><span class="ui-button-text">space</span></a></li>
+			<li class="key"><a href="#" role="button" aria-disabled="false" class="special special-return group-symbols " data-key-special="return"><span class="ui-button-text">return</span></a></li>
+		</div>
+	</ul>
+	</div>
+</div>
+</body>
+</html>
