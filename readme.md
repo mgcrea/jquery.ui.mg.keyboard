@@ -4,8 +4,7 @@ Handle a css keyboard
 
 ## Examples
 
-* http://mgcrea.github.com/jquery.ui.mg.keyboard/examples/01.html
-* http://mgcrea.github.com/jquery.ui.mg.keyboard/examples/02.html
+* <http://mgcrea.github.com/jquery.ui.mg.keyboard>
 
 ## Vendors
 
@@ -18,7 +17,7 @@ Handle a css keyboard
 ## Contact ##
 
 * contact@mg-crea.com
-* http://mg-crea.com
+* <http://mg-crea.com>
 
 ## License ##
 
@@ -33,4 +32,4 @@ Handle a css keyboard
 
 Copyright 2010<br/>
 Magenta Creations<br/>
-http://www.mg-crea.com<br/>
+<http://www.mg-crea.com><br/>
