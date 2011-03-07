@@ -42,9 +42,21 @@ $.widget("ui.keyboard", $.ui.mouse, {
 			if(!this._mouseDragged) {
 				$t.next("div.subkeys").show();
 			}
+			// has the mouse been dragged over a subkey before ?
+			else if(this._mouseDraggedOverSubkey) {
+				$t.next("div.subkeys").hide();
+			}
 		}
 
-		if($t.hasClass("is-subkey"))  $t.siblings().removeClass('ui-state-active').end().addClass('ui-state-active');
+		// dragging over a subkey
+		if($t.hasClass("is-subkey")) {
+
+			// first drag over a subkey ? clean heldDownTimer
+			if(!this._mouseDraggedOverSubkey) clearInterval(this.mouseHeldDownTimer);
+
+			this._mouseDraggedOverSubkey = true;
+			$t.siblings().removeClass('ui-state-active').end().addClass('ui-state-active');
+		}
 
 		this._mouseDragged = true;
 	},
@@ -73,6 +85,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 
 		// reset drag status
 		this._mouseDragged = false;
+		this._mouseDraggedOverSubkey = false;
 
 		// add mouseHeldDown timer
 		clearInterval(this.mouseHeldDownTimer);
