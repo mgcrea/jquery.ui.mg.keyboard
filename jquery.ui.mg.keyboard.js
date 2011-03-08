@@ -53,8 +53,9 @@ $.widget("ui.keyboard", $.ui.mouse, {
 
 			// first drag over a subkey ? clean heldDownTimer
 			if(!this._mouseDraggedOverSubkey) clearInterval(this.mouseHeldDownTimer);
+			// remember which subkeys are opened
+			this._mouseDraggedOverSubkey = $t.closest('.subkeys');
 
-			this._mouseDraggedOverSubkey = true;
 			$t.siblings().removeClass('ui-state-active').end().addClass('ui-state-active');
 		}
 
@@ -70,9 +71,14 @@ $.widget("ui.keyboard", $.ui.mouse, {
 			if(!$t) return false;
 		}
 
+		console.log('this._mouseDraggedOverSubkey', this._mouseDraggedOverSubkey);
+
 		// releasing on a subkey = click
-		if($t.is("div.subkeys a")) {
+		if($t.hasClass("is-subkey")) {
 			$t.trigger("click");
+		} else if(this._mouseDraggedOverSubkey) {
+			console.log('hide subkeys');
+			this._mouseDraggedOverSubkey.hide();
 		}
 
 		// clear timer
