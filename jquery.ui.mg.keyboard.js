@@ -182,7 +182,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 
 		if(!o.debug) console = { log: function(){} };
 
-		this.inputs = $("input");
+		this.inputs = $("input, textarea");
 		this.keys = this.element.find("li.key");
 
 		this.element.css('position', 'relative');
