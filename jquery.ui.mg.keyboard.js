@@ -38,14 +38,25 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		}
 
 		if($t.hasClass("has-subkeys")) {
+
+			var $subkeys = $t.next("div.subkeys");
+
 			// has the mouse been dragged before ?
 			if(!this._mouseDragged) {
-				$t.next("div.subkeys").show();
+				// show subkeys
+				$subkeys.show();
+				// save visible subkeys for later use
+				this._$visibleSubkeys = $subkeys;
+				// we never dragged on theses subkeys
+				this._mouseDraggedOverSubkey = false;
 			}
-			// has the mouse been dragged over a subkey before ?
-			else if(this._mouseDraggedOverSubkey) {
-				$t.next("div.subkeys").hide();
+
+			// mouse is being dragged over some key with subkeys but there is still visible keys => hide subkeys.
+			else if(this._mouseDraggedOverSubkey && this._$visibleSubkeys) {
+				this._$visibleSubkeys.hide();
+				this._$visibleSubkeys = false;
 			}
+
 		}
 
 		// dragging over a subkey
@@ -53,8 +64,8 @@ $.widget("ui.keyboard", $.ui.mouse, {
 
 			// first drag over a subkey ? clean heldDownTimer
 			if(!this._mouseDraggedOverSubkey) clearInterval(this.mouseHeldDownTimer);
-			// remember which subkeys are opened
-			this._mouseDraggedOverSubkey = $t.closest('.subkeys');
+			// remember that we already dragged
+			this._mouseDraggedOverSubkey = true;
 
 			$t.siblings().removeClass('ui-state-active').end().addClass('ui-state-active');
 		}
@@ -71,14 +82,12 @@ $.widget("ui.keyboard", $.ui.mouse, {
 			if(!$t) return false;
 		}
 
-		console.log('this._mouseDraggedOverSubkey', this._mouseDraggedOverSubkey);
-
 		// releasing on a subkey = click
 		if($t.hasClass("is-subkey")) {
 			$t.trigger("click");
-		} else if(this._mouseDraggedOverSubkey) {
-			console.log('hide subkeys');
-			this._mouseDraggedOverSubkey.hide();
+		// else we must hide any visible subkeys
+		} else if(this._$visibleSubkeys) {
+			this._$visibleSubkeys.hide();
 		}
 
 		// clear timer
@@ -92,6 +101,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		// reset drag status
 		this._mouseDragged = false;
 		this._mouseDraggedOverSubkey = false;
+		this._$visibleSubkeys = false;
 
 		// add mouseHeldDown timer
 		clearInterval(this.mouseHeldDownTimer);
