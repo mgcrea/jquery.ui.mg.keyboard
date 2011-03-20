@@ -21,7 +21,7 @@ $.widget("ui.keyboard", $.ui.mouse, {
 		transferClasses: true,
 		shift: false,
 		distance: 5, // $.ui.mouse option
-		delay: 5, // $.ui.mouse option
+		delay: 50, // $.ui.mouse option
 		debug: false
 	},
 	_mouseStart: function(e) {
