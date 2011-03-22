@@ -19,8 +19,9 @@ $.widget("ui.keyboard", $.ui.mouse, {
 	widgetEventPrefix: "keyboard",
 	options: {
 		transferClasses: true,
+		mouseEvent: 'click',
 		shift: false,
-		distance: 5, // $.ui.mouse option
+		distance: 10, // $.ui.mouse option
 		delay: 50, // $.ui.mouse option
 		debug: false
 	},
